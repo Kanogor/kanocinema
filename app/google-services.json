@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "650161408839",
+    "project_id": "kanogor-s-skillcinema",
+    "storage_bucket": "kanogor-s-skillcinema.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650161408839:android:61c24bb659ad26f9891a62",
+        "android_client_info": {
+          "package_name": "ru.kanogor.skillcinema"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeLNFcDusx1Grkmp3blswYTV_pKrnCtnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/eye_image"
+        android:layout_width="20dp"
+        android:layout_height="18dp"
+        android:layout_gravity="center"
+        android:background="@color/transparent"
+        android:src="@drawable/ic_bag"
+        android:tint="@color/black_text" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        style="@style/SkillcinemaText.NormalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:text="@string/add_in_collection" />
+
+</LinearLayout>

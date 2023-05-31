@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SkillcinemaText" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/graphik_semibold</item>
+        <item name="android:textColor">@color/black_text</item>
+    </style>
+
+    <style name="SkillcinemaText.Blue">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/graphik_medium</item>
+        <item name="android:textColor">@color/app_blue</item>
+    </style>
+
+    <style name="SkillcinemaText.Title">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/graphik_regular</item>
+    </style>
+
+    <style name="SkillcinemaText.GreyText">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/graphik_regular</item>
+        <item name="android:textColor">@color/grey_text</item>
+    </style>
+
+    <style name="SkillcinemaText.Rating">
+        <item name="android:textSize">6sp</item>
+        <item name="fontFamily">@font/graphik_medium</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SkillcinemaText.FilmpageText">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/graphik_medium</item>
+        <item name="android:textColor">@color/film_page_grey_text</item>
+        <item name="android:radius">4dp</item>
+    </style>
+
+    <style name="SkillcinemaText.BoldText">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/graphik_bold</item>
+        <item name="android:textColor">@color/black_text</item>
+    </style>
+
+    <style name="SkillcinemaText.NormalText">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/graphik_regular</item>
+        <item name="android:textColor">@color/black_text</item>
+    </style>
+
+    <style name="SkillcinemaText.Toolbar">
+        <item name="fontFamily">@font/graphik_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black_text</item>
+    </style>
+
+    <style name="SkillcinemaText.Medium">
+        <item name="fontFamily">@font/graphik_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black_text</item>
+    </style>
+
+    <style name="SkillcinemaText.OnboardingMiss">
+        <item name="fontFamily">@font/graphik_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/film_page_grey_text</item>
+    </style>
+
+    <style name="SkillcinemaText.OnboardingBigText">
+        <item name="fontFamily">@font/graphik_regular</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/black_text</item>
+    </style>
+
+    <style name="SkillcinemaText.ActorName">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="SkillcinemaText.NotFound">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/graphik_medium</item>
+        <item name="android:textColor">@color/black_text</item>
+    </style>
+
+    <style name="SkillcinemaText.SearchGreyText">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/graphik_regular</item>
+        <item name="android:textColor">@color/grey_text</item>
+    </style>
+
+</resources>

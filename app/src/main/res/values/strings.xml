@@ -1,0 +1,168 @@
+<resources>
+    <string name="app_name">Skillcinema</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="homepage">Homepage</string>
+    <string name="list_page">List_page</string>
+    <string name="film_page">Film_page</string>
+    <string name="actor_page">Actor_page</string>
+    <string name="seasons">Seasons</string>
+    <string name="filmography_label">Filmography</string>
+    <string name="gallery_label">Gallery</string>
+    <string name="splash">Splash</string>
+    <string name="onboarding">Onboarding</string>
+
+    <!-- Strings used for Homepage -->
+    <string name="premieres">Премьеры</string>
+    <string name="soaps">Сериалы</string>
+    <string name="top_films">ТОП - 250</string>
+    <string name="popular_films">Популярное</string>
+    <string name="show_all">Показать все</string>
+
+    <!-- Strings used for Filmpage -->
+    <string name="kinopoisk_ru">https://www.kinopoisk.ru/film/</string>
+    <string name="imdb_com_t">https://www.imdb.com/title/</string>
+    <plurals name="count_seasons_poster">
+        <item quantity="zero">, %1$d сезонов</item>
+        <item quantity="one">, %1$d сезон</item>
+        <item quantity="two">, %1$d сезона</item>
+        <item quantity="few">, %1$d сезона</item>
+        <item quantity="many">, %1$d сезонов</item>
+    </plurals>
+    <plurals name="count_seasons_group">
+        <item quantity="zero">%1$d сезонов</item>
+        <item quantity="one">%1$d сезон</item>
+        <item quantity="two">%1$d сезона</item>
+        <item quantity="few">%1$d сезона</item>
+        <item quantity="many">%1$d сезонов</item>
+    </plurals>
+    <plurals name="count_series_group">
+        <item quantity="zero">, %1$d серий</item>
+        <item quantity="one">, %1$d серия</item>
+        <item quantity="few">, %1$d серии</item>
+        <item quantity="many">, %1$d серий</item>
+    </plurals>
+    <string name="title_seasons_and_series">Сезоны и серии</string>
+    <string name="filmpage_year">%s г,\u0020</string>
+    <string name="filmpage_leight">, %s мин</string>
+    <string name="count_button">%d &gt;</string>
+    <string name="staff_list_title">Над фильмом работали</string>
+    <string name="similar_films">Похожие фильмы</string>
+    <string name="gallery">Галерея</string>
+    <string name="actors_list_title">В фильме снимались</string>
+    <string name="all">Все</string>
+    <string name="in_collection_film_filmpage">Этот фильм добавлен в список &quot;%s&quot;</string>
+    <string name="not_in_collection_film_filmpage">Этот фильм удален из списка &quot;%s&quot;</string>
+
+    <!-- Strings used for ActorPage -->
+    <string name="all_button_actorpage">Все &gt;</string>
+    <string name="to_list_button_actorpage">К списку &gt;</string>
+    <string name="filmography">Фильмография</string>
+    <plurals name="count_of_films_actorpage">
+        <item quantity="zero">%1$d фильмов</item>
+        <item quantity="one">%1$d фильм</item>
+        <item quantity="few">%1$d фильма</item>
+        <item quantity="many">%1$d фильмов</item>
+        <item quantity="other">%1$d фильмов</item>
+    </plurals>
+    <string name="best">Лучшее</string>
+
+    <!-- Strings used for Gallery -->
+    <string name="poster_chip_title">Постер %1$d</string>
+    <string name="concept_chip_title">Концепт-арты %1$d</string>
+    <string name="cover_chip_title">Обложки %1$d</string>
+    <string name="promo_chip_title">Промо %1$d</string>
+    <string name="fanArt_chip_title">Фан-арты %1$d</string>
+    <string name="screenshot_chip_title">Скриншоты %1$d</string>
+    <string name="shooting_chip_title">Изображения со съемок %1$d</string>
+    <string name="still_chip_title">Кадры %1$d</string>
+    <string name="wallpaper_chip_title">Обои %1$d</string>
+    <string name="choose_gallery">Выберите раздел</string>
+    <string name="no_photo_gallery">В данном разделе фотографии отсутствуют</string>
+
+    <!-- Strings used for Filmography -->
+    <string name="filmography_page_title">Фильмография</string>
+    <string name="actor">Актер %1$d</string>
+    <string name="actress">Актриса %1$d</string>
+    <string name="director">Режиссер %1$d</string>
+    <string name="himself_man">В роли самого себя %1$d</string>
+    <string name="himself_woman">В роли самой себя %1$d</string>
+    <string name="producer">Продюсер %1$d</string>
+    <string name="writer">Сценарист %1$d</string>
+    <string name="other">Другое %1$d</string>
+
+
+    <!-- Strings used for SeasonsFragment -->
+    <string name="season_title">Сезон</string>
+    <string name="chip_text_season">Сезон %1$d</string>
+    <plurals name="count_of_seasons_seasonsPage">
+        <item quantity="zero">%1$d сезон, %2$d серий</item>
+        <item quantity="one">%1$d сезон, %2$d серия</item>
+        <item quantity="few">%1$d сезон, %2$d серии</item>
+        <item quantity="many">%1$d сезон, %2$d серий</item>
+        <item quantity="other">%1$d сезон, %2$d серий</item>
+    </plurals>
+
+    <!-- Strings used for SearchFragment -->
+    <string name="search">Search</string>
+    <string name="not_found_search">К сожалению, по вашему запросу \n\n ничего не найдено</string>
+    <string name="search_hint">Фильмы, актеры, режиссёры</string>
+    <string name="search_toolbar_title">Настройки поиска</string>
+    <string name="show_search_text">Показывать</string>
+    <string name="all_search">Все</string>
+    <string name="films_search">Фильмы</string>
+    <string name="soaps_search">Сериалы</string>
+    <string name="sorting_search">Сортировать</string>
+    <string name="data_search">Дата</string>
+    <string name="popular_search">Популярность</string>
+    <string name="rating_search">Рейтинг</string>
+    <string name="country">Страна</string>
+    <string-array name="Countries">
+        <item>CША</item>
+        <item>Франция</item>
+        <item>Великобритания</item>
+        <item>Россия</item>
+    </string-array>
+    <string name="rating_title_search">Рейтинг</string>
+    <string name="not_viewed_search">Не просмотрен</string>
+    <string name="genre">Жанр</string>
+    <string-array name="Genres">
+        <item>Драма</item>
+        <item>Мелодрама</item>
+        <item>Детектив</item>
+        <item>Боевик</item>
+        <item>Фентези</item>
+        <item>Комедия</item>
+    </string-array>
+    <string name="search_from_searchpage">Искать в период с</string>
+    <string name="search_to_searchpage">Искать в период до</string>
+    <string name="data_chose_toast_first">Пожалуйста, выберите, с какого и по какой год выпуска показывать фильмы</string>
+    <string name="data_chose_toast_second">Пожалуйста, выберите, корректный промежуток времени</string>
+    <string name="period_search_calendar">Период</string>
+    <string name="chose_searchpage">Выбрать</string>
+    <string name="range_from_to">от %1$d до %2$d</string>
+    <string name="year_menu_title_searchpage">Год</string>
+
+
+    <!-- Strings used for Profile -->
+    <string name="profile">Profile</string>
+    <string name="collection_profile">Коллекции</string>
+    <string name="create_collection_profile">+      Создать свою коллекцию</string>
+    <string name="watched_profile">Просмотрено</string>
+    <string name="was_interested_profile">Вам было интересно</string>
+    <string name="dialog_hint_profile">Придумайте название \nдля вашей новой коллекции</string>
+    <string name="done_dialog_profile">Готово</string>
+
+
+    <!-- Strings used for Onboarding -->
+    <string name="miss_onboarding">Пропустить</string>
+    <string name="onboarding_first_page">Узнавай о премьерах</string>
+    <string name="onboarding_second_text">Создавай коллекции</string>
+    <string name="onboarding_third_text">Делись с друзьями</string>
+
+
+    <!-- Strings used for Other -->
+    <string name="error">Ошибка!</string>
+    <string name="error_message">Во время обработки запросa \nпроизошла ошибка</string>
+    <string name="add_in_collection">Добавить в коллекцию</string>
+
+</resources>

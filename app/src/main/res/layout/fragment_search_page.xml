@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.searchpage.SearchPageFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/menu_search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_search_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1sp"
+                android:outlineProvider="none"
+                android:theme="@style/ToolbarTheme"
+                app:navigationIcon="@drawable/icon_back"
+                app:title="@string/search_toolbar_title"
+                app:titleCentered="true"
+                app:titleTextAppearance="@style/SkillcinemaText.Toolbar" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SkillcinemaText.SearchGreyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:text="@string/show_search_text" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/type_button_group"
+                style="@style/Widget.Material3.Button.IconButton.Filled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:checkedButton="@id/type_left_button"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/type_left_button"
+                    style="@style/TripleButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/all_search" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/type_center_button"
+                    style="@style/TripleButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/films_search" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/type_right_button"
+                    style="@style/TripleButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/soaps_search" />
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <ru.kanogor.skillcinema.presentation.viewgroups.SpinnerItems
+                android:id="@+id/country_filter_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+            <ru.kanogor.skillcinema.presentation.viewgroups.SpinnerItems
+                android:id="@+id/genres_filter_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+            <ru.kanogor.skillcinema.presentation.viewgroups.YearFilterItem
+                android:id="@+id/years_filter_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clickable="true" />
+
+            <ru.kanogor.skillcinema.presentation.viewgroups.RatingRangeSlide
+                android:id="@+id/rating_filter_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SkillcinemaText.SearchGreyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:text="@string/sorting_search" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/sorting_button_group"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:checkedButton="@id/sorting_left_button"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sorting_left_button"
+                    style="@style/TripleButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/data_search" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sorting_center_button"
+                    style="@style/TripleButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/popular_search" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sorting_right_button"
+                    style="@style/TripleButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rating_search" />
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="30dp"
+                android:background="@color/grey_text" />
+
+            <ru.kanogor.skillcinema.presentation.viewgroups.EyeButton
+                android:id="@+id/is_viewed_button"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_marginStart="36dp"
+                android:clickable="true"
+                android:gravity="center_vertical" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/data_range_layout_filter_searchpage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_calendar_search_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1sp"
+                android:outlineProvider="none"
+                android:theme="@style/ToolbarTheme"
+                app:navigationIcon="@drawable/icon_back"
+                app:title="@string/period_search_calendar"
+                app:titleCentered="true"
+                app:titleTextAppearance="@style/SkillcinemaText.Toolbar" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SkillcinemaText.SearchGreyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:text="@string/search_from_searchpage" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="300dp"
+                android:layout_height="250dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/date_range_from_searchpage_filter"
+                        style="@style/SkillcinemaText.Blue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="1999-2000" />
+
+                    <ImageButton
+                        android:id="@+id/right_button_data_from_searchpage_filter"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@color/transparent"
+                        android:src="@drawable/ic_to_right"
+                        app:layout_constraintBottom_toBottomOf="@id/date_range_from_searchpage_filter"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/date_range_from_searchpage_filter" />
+
+                    <ImageButton
+                        android:id="@+id/left_button_data_from_searchpage_filter"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@color/transparent"
+                        android:src="@drawable/ic_to_left"
+                        app:layout_constraintBottom_toBottomOf="@id/date_range_from_searchpage_filter"
+                        app:layout_constraintEnd_toStartOf="@id/right_button_data_from_searchpage_filter"
+                        app:layout_constraintTop_toTopOf="@id/date_range_from_searchpage_filter" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view_from_searchpage_filter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="36dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/left_button_data_from_searchpage_filter"
+                        app:spanCount="3"
+                        tools:itemCount="12"
+                        tools:listitem="@layout/calendar_number" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SkillcinemaText.SearchGreyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="26dp"
+                android:text="@string/search_to_searchpage" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="300dp"
+                android:layout_height="250dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/date_range_to_searchpage_filter"
+                        style="@style/SkillcinemaText.Blue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="2013-2025" />
+
+                    <ImageButton
+                        android:id="@+id/right_button_data_to_searchpage_filter"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@color/transparent"
+                        android:src="@drawable/ic_to_right"
+                        app:layout_constraintBottom_toBottomOf="@id/date_range_to_searchpage_filter"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/date_range_to_searchpage_filter" />
+
+                    <ImageButton
+                        android:id="@+id/left_button_data_to_searchpage_filter"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@color/transparent"
+                        android:src="@drawable/ic_to_left"
+                        app:layout_constraintBottom_toBottomOf="@id/date_range_to_searchpage_filter"
+                        app:layout_constraintEnd_toStartOf="@id/right_button_data_to_searchpage_filter"
+                        app:layout_constraintTop_toTopOf="@id/date_range_to_searchpage_filter" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view_to_searchpage_filter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="36dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/left_button_data_to_searchpage_filter"
+                        app:spanCount="3"
+                        tools:itemCount="12"
+                        tools:listitem="@layout/calendar_number" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/chose_data_button_searchpage_filter"
+                style="@style/BlueButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="56dp"
+                android:layout_marginBottom="26dp"
+                android:text="@string/chose_searchpage" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="26dp"
+                android:theme="@style/Theme.Skillcinema.EditText"
+                app:endIconCheckable="true"
+                app:endIconDrawable="@drawable/ic_settings"
+                app:endIconMode="custom"
+                app:suffixText="|"
+                app:suffixTextAppearance="@style/SkillcinemaText"
+                app:suffixTextColor="#838390">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/search_background"
+                    android:drawableStart="@drawable/ic_search"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/search_hint"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:paddingTop="9dp"
+                    android:paddingBottom="9dp"
+                    android:textColor="@color/black_text"
+                    android:textColorHint="@color/hint_color"
+                    app:hintTextAppearance="@style/SkillcinemaText"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp"
+                android:theme="@style/BlueProgressBar"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/under_editText_search_films"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/not_found_text"
+                    style="@style/SkillcinemaText.NotFound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="64dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/not_found_search" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="26dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/movie_item_horizontal" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+</ScrollView>

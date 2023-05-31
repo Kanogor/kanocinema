@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.actorpage.ActorPageFragment">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".presentation.actorpage.ActorPageFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/margin_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="56dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/margin_begin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="26dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/margin_end"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="26dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/photo"
+        android:layout_width="146dp"
+        android:layout_height="201dp"
+        app:layout_constraintStart_toStartOf="@id/margin_begin"
+        app:layout_constraintTop_toTopOf="@id/margin_top"
+        tools:src="@tools:sample/avatars" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:theme="@style/BlueProgressBar"
+        app:layout_constraintEnd_toEndOf="@id/margin_end"
+        app:layout_constraintStart_toStartOf="@id/margin_begin"
+        app:layout_constraintTop_toTopOf="@id/margin_top" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/actor_page_group"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="filmography, to_list_textButton, count_of_films, name, profession, photo, best_films_list" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name"
+        style="@style/SkillcinemaText.ActorName"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/photo"
+        app:layout_constraintTop_toTopOf="@id/photo"
+        tools:text="Имя Фамилия" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/profession"
+        style="@style/SkillcinemaText.GreyText"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        tools:text="Актриса" />
+
+    <ru.kanogor.skillcinema.presentation.viewgroups.ItemsListViewGroup
+        android:id="@+id/best_films_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filmography"
+        style="@style/SkillcinemaText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/filmography"
+        app:layout_constraintStart_toStartOf="@id/margin_begin"
+        app:layout_constraintTop_toBottomOf="@id/best_films_list" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/to_list_textButton"
+        style="@style/SkillcinemaText.Blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:text="@string/to_list_button_actorpage"
+        app:layout_constraintBottom_toBottomOf="@id/filmography"
+        app:layout_constraintEnd_toEndOf="@id/margin_end"
+        app:layout_constraintTop_toTopOf="@id/filmography"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/count_of_films"
+        style="@style/SkillcinemaText.GreyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintStart_toStartOf="@id/margin_begin"
+        app:layout_constraintTop_toBottomOf="@id/filmography"
+        tools:text="00 фильмов" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

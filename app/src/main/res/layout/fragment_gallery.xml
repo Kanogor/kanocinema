@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.gallery.GalleryFragment">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:theme="@style/BlueProgressBar" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#32323232"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/page_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="56dp"
+            app:layout_constraintStart_toStartOf="@id/margin_begin"
+            app:layout_constraintTop_toTopOf="@id/margin_top">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_gallery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:singleLine="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/still_chip_gallery"
+                    style="@style/ChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.Skillcinema"
+                    tools:text="@string/still_chip_title" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/shooting_chip_gallery"
+                    style="@style/ChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.Skillcinema"
+                    tools:text="@string/shooting_chip_title" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/poster_chip_gallery"
+                    style="@style/ChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.Skillcinema"
+                    tools:text="@string/poster_chip_title" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/fanArt_chip_gallery"
+                    style="@style/ChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.Skillcinema"
+                    tools:text="@string/fanArt_chip_title" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/promo_chip_gallery"
+                    style="@style/ChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.Skillcinema"
+                    tools:text="@string/promo_chip_title" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/concept_chip_gallery"
+                    style="@style/ChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.Skillcinema"
+                    tools:text="@string/concept_chip_title" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/wallpaper_chip_gallery"
+                    style="@style/ChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.Skillcinema"
+                    tools:text="@string/wallpaper_chip_title" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/cover_chip_gallery"
+                    style="@style/ChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.Skillcinema"
+                    tools:text="@string/cover_chip_title" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/screenshot_chip_gallery"
+                    style="@style/ChipStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.Skillcinema"
+                    tools:text="@string/screenshot_chip_title" />
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="26dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/image_item" />
+
+    </LinearLayout>
+
+</FrameLayout>

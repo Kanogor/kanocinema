@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal">
+
+    <Spinner
+        android:id="@+id/spinner"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        tools:entries="@array/Countries"
+        android:popupBackground="@color/white"
+        android:theme="@style/SpinnerStyle"
+        android:dropDownHeight="48dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        style="@style/SkillcinemaText.NormalText"
+        android:layout_marginStart="26dp"
+        android:elevation="2dp"
+        tools:text="Страна"/>
+
+</FrameLayout>

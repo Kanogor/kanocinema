@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.profilepage.ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ru.kanogor.skillcinema.presentation.viewgroups.ItemsListViewGroup
+            android:id="@+id/was_watched_list_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/SkillcinemaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="26dp"
+            android:text="@string/collection_profile" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/create_collection_profile"
+            style="@style/SkillcinemaText.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="27dp"
+            android:clickable="true"
+            android:minHeight="48dp"
+            android:text="@string/create_collection_profile"
+            android:textSize="16sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/collection_cards_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:itemCount="6"
+            tools:listitem="@layout/collection_card" />
+
+        <ru.kanogor.skillcinema.presentation.viewgroups.ItemsListViewGroup
+            android:id="@+id/was_interested_list_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="26dp" />
+
+    </LinearLayout>
+</ScrollView>
