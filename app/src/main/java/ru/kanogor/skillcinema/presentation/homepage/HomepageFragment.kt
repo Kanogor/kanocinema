@@ -63,28 +63,8 @@ class HomepageFragment : Fragment() {
 
         viewModel.checkCollection()
 
-        viewModel.isLoading.onEach {
-            if (it) {
-                with(binding) {
-                    progressBar.visibility = View.VISIBLE
-                    premieres.visibility = View.GONE
-                    popular.visibility = View.GONE
-                    topFilms.visibility = View.GONE
-                    firstRandomFilms.visibility = View.GONE
-                    secondRandomFilms.visibility = View.GONE
-                    soapOpera.visibility = View.GONE
-                }
-            } else {
-                with(binding) {
-                    progressBar.visibility = View.GONE
-                    premieres.visibility = View.VISIBLE
-                    popular.visibility = View.VISIBLE
-                    topFilms.visibility = View.VISIBLE
-                    firstRandomFilms.visibility = View.VISIBLE
-                    secondRandomFilms.visibility = View.VISIBLE
-                    soapOpera.visibility = View.VISIBLE
-                }
-            }
+        viewModel.isLoading.onEach { isLoading ->
+            progressVisibility(isLoading = isLoading)
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         //Premieres
@@ -209,6 +189,30 @@ class HomepageFragment : Fragment() {
             putInt(FILM_ID, id)
         }
         findNavController().navigate(R.id.action_homepage_to_filmPage, args = bundle)
+    }
+
+    private fun progressVisibility(isLoading: Boolean) {
+        if (isLoading) {
+            with(binding) {
+                progressBar.visibility = View.VISIBLE
+                premieres.visibility = View.GONE
+                popular.visibility = View.GONE
+                topFilms.visibility = View.GONE
+                firstRandomFilms.visibility = View.GONE
+                secondRandomFilms.visibility = View.GONE
+                soapOpera.visibility = View.GONE
+            }
+        } else {
+            with(binding) {
+                progressBar.visibility = View.GONE
+                premieres.visibility = View.VISIBLE
+                popular.visibility = View.VISIBLE
+                topFilms.visibility = View.VISIBLE
+                firstRandomFilms.visibility = View.VISIBLE
+                secondRandomFilms.visibility = View.VISIBLE
+                soapOpera.visibility = View.VISIBLE
+            }
+        }
     }
 
     override fun onDestroyView() {

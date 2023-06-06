@@ -213,8 +213,8 @@ class HomepageViewModel @Inject constructor(
             kotlin.runCatching {
                 repository.getSoaps(FIRST_PAGE)
             }.fold(
-                onSuccess = {
-                    _soapsFilms.value = it
+                onSuccess = { filmList ->
+                    _soapsFilms.value = filmList
                 },
                 onFailure = { Log.d(HOME_VM, it.message ?: "Soap") }
             )
