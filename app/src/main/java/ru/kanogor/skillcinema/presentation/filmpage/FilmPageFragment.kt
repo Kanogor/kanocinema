@@ -79,13 +79,7 @@ class FilmPageFragment : Fragment() {
         applyLayoutTransition()
 
         viewModel.isLoading.onEach {
-            if (it) {
-                binding.progressBar.visibility = View.VISIBLE
-                binding.pageLayout.visibility = View.GONE
-            } else {
-                binding.progressBar.visibility = View.GONE
-                binding.pageLayout.visibility = View.VISIBLE
-            }
+            isInfoLoad(isLoad = it)
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         viewModel.loadInfo(filmId!!)
@@ -109,7 +103,12 @@ class FilmPageFragment : Fragment() {
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         viewModel.isFilmWantWatched.onEach {
-            isInfoLoad(isLoad = it)
+            if (it) {
+                binding.bookmarkButtonFilmpage.setImageResource(R.drawable.ic_selected_bookmark)
+
+            } else {
+                binding.bookmarkButtonFilmpage.setImageResource(R.drawable.ic_bookmark)
+            }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         //Actors
@@ -316,15 +315,6 @@ class FilmPageFragment : Fragment() {
                 sareButtonAction(film?.imdbId, film?.kinopoiskId.toString())
             }
 
-            binding.heartButtonFilmpage.setOnClickListener {
-                viewModel.onIconButtonClick(viewModel.collectionsName.liked)
-            }
-            binding.eyeButtonFilmpage.setOnClickListener {
-                viewModel.onIconButtonClick(viewModel.collectionsName.watched)
-            }
-            binding.bookmarkButtonFilmpage.setOnClickListener {
-                viewModel.onIconButtonClick(viewModel.collectionsName.wantWatch)
-            }
             binding.pointsButtonFilmpage.setOnClickListener {
                 configCollectionBottomDialog(
                     title = titleText.toString(),
@@ -337,13 +327,24 @@ class FilmPageFragment : Fragment() {
 
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-    }
-    private companion object {
-        private const val GRID_SPAN_ACTOR = 4
-        private const val  GRID_SPAN_STAFF = 2
+        binding.heartButtonFilmpage.setOnClickListener {
+            viewModel.onIconButtonClick(viewModel.collectionsName.liked)
+        }
+        binding.eyeButtonFilmpage.setOnClickListener {
+            viewModel.onIconButtonClick(viewModel.collectionsName.watched)
+        }
+        binding.bookmarkButtonFilmpage.setOnClickListener {
+            viewModel.onIconButtonClick(viewModel.collectionsName.wantWatch)
+        }
+
     }
 
-    fun sareButtonAction(imdbId: String?, kinopoiskId: String?) {
+    private companion object {
+        private const val GRID_SPAN_ACTOR = 4
+        private const val GRID_SPAN_STAFF = 2
+    }
+
+    private fun sareButtonAction(imdbId: String?, kinopoiskId: String?) {
         val link =
             if (imdbId == null) getString(R.string.kinopoisk_ru) + kinopoiskId + "/"  // добавлена ссылка на Кинопоиск, так как не все фильмы присутствуют на imdb.com
             else {
@@ -357,6 +358,7 @@ class FilmPageFragment : Fragment() {
         val shareIntent = Intent.createChooser(sendIntent, "Look at this movie")
         startActivity(shareIntent)
     }
+
     private fun applyLayoutTransition() {
         val layoutTransition = LayoutTransition()
         layoutTransition.setDuration(300)

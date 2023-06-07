@@ -24,6 +24,7 @@ import ru.kanogor.skillcinema.presentation.listpage.ListPageFragment.Companion.P
 import ru.kanogor.skillcinema.presentation.listpage.ListPageFragment.Companion.SECOND_RAND_FILM
 import ru.kanogor.skillcinema.presentation.listpage.ListPageFragment.Companion.SOAPS
 import ru.kanogor.skillcinema.presentation.listpage.ListPageFragment.Companion.TOP_FILMS
+import ru.kanogor.skillcinema.presentation.viewgroups.ItemsListViewGroup
 
 private const val CATEGORY_NAME = "adapter_name"
 private const val FILM_ID = "film_id"
@@ -40,6 +41,8 @@ class HomepageFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         (activity as AppCompatActivity).supportActionBar?.hide()
+        val botNav = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
+        botNav.visibility = View.VISIBLE
     }
 
     override fun onStop() {
@@ -58,122 +61,56 @@ class HomepageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val botNav = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
-        botNav.visibility = View.VISIBLE
-
         viewModel.checkCollection()
 
         viewModel.isLoading.onEach { isLoading ->
             progressVisibility(isLoading = isLoading)
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-        //Premieres
         viewModel.filmsIds.onEach { listIds ->
+            //Premieres
             val premieresAdapter = PremieresFilmsAdapter(listIds)
-            with(binding.premieres) {
-                setTitle(getString(R.string.premieres))
-                setRecyclerView(premieresAdapter)
-                showAllButton.setOnClickListener {
-                    moveToListPage(PREMIERES)
-                }
-            }
-            premieresAdapter.onButtonClick = { moveToListPage(PREMIERES) }
-            premieresAdapter.onItemClick = { filmId -> moveToFilmPage(filmId) }
-
-            viewModel.premieresMovieList.onEach {
-                premieresAdapter.submitList(it)
-            }.launchIn(viewLifecycleOwner.lifecycleScope)
-
+            premieresFilmsSettings(premieresAdapter)
 
             //Popular:
             val popularAdapter = TopFilmsListAdapter(listIds)
-            with(binding.popular) {
-                setTitle(getString(R.string.popular_films))
-                setRecyclerView(popularAdapter)
-                showAllButton.setOnClickListener {
-                    moveToListPage(POPULAR)
-                }
-            }
-            popularAdapter.onButtonClick = { moveToListPage(POPULAR) }
-            popularAdapter.onItemClick = { filmId -> moveToFilmPage(filmId) }
-
-            viewModel.popularMovieList.onEach {
-                popularAdapter.submitList(it)
-            }.launchIn(viewLifecycleOwner.lifecycleScope)
-
+            topFilmsSettings(
+                adapter = popularAdapter,
+                itemsViewGroup = binding.popular,
+                category = POPULAR
+            )
 
             //First Random Films
             val firstRandomFilmsAdapter = FilteredFilmsAdapter(listIds)
-            with(binding.firstRandomFilms) {
-                setRecyclerView(firstRandomFilmsAdapter)
-                showAllButton.setOnClickListener {
-                    moveToListPage(FIRST_RAND_FILM)
-                }
-            }
-            firstRandomFilmsAdapter.onButtonClick = { moveToListPage(FIRST_RAND_FILM) }
-            firstRandomFilmsAdapter.onItemClick = { filmId -> moveToFilmPage(filmId) }
-
-            viewModel.firstRandomFilmTitle.onEach {
-                binding.firstRandomFilms.setTitle(it)
-            }.launchIn(viewLifecycleOwner.lifecycleScope)
-
-            viewModel.firstRandomFilms.onEach {
-                firstRandomFilmsAdapter.submitList(it)
-            }.launchIn(viewLifecycleOwner.lifecycleScope)
-
+            filteredFilmsSettings(
+                adapter = firstRandomFilmsAdapter,
+                itemsViewGroup = binding.firstRandomFilms,
+                category = FIRST_RAND_FILM
+            )
 
             //Second Random Films
             val secondRandomFilmsAdapter = FilteredFilmsAdapter(listIds)
-            with(binding.secondRandomFilms) {
-                setRecyclerView(secondRandomFilmsAdapter)
-                showAllButton.setOnClickListener {
-                    moveToListPage(SECOND_RAND_FILM)
-                }
-            }
-            secondRandomFilmsAdapter.onButtonClick = { moveToListPage(SECOND_RAND_FILM) }
-            secondRandomFilmsAdapter.onItemClick = { filmId -> moveToFilmPage(filmId) }
-
-            viewModel.secondRandomFilmTitle.onEach {
-                binding.secondRandomFilms.setTitle(it)
-            }.launchIn(viewLifecycleOwner.lifecycleScope)
-
-            viewModel.secondRandomFilms.onEach {
-                secondRandomFilmsAdapter.submitList(it)
-            }.launchIn(viewLifecycleOwner.lifecycleScope)
-
+            filteredFilmsSettings(
+                adapter = secondRandomFilmsAdapter,
+                itemsViewGroup = binding.secondRandomFilms,
+                category = SECOND_RAND_FILM
+            )
 
             //Top 250
             val topFilmsAdapter = TopFilmsListAdapter(listIds)
-            with(binding.topFilms) {
-                setTitle(getString(R.string.top_films))
-                setRecyclerView(topFilmsAdapter)
-                showAllButton.setOnClickListener {
-                    moveToListPage(TOP_FILMS)
-                }
-            }
-            topFilmsAdapter.onButtonClick = { moveToListPage(TOP_FILMS) }
-            topFilmsAdapter.onItemClick = { filmId -> moveToFilmPage(filmId) }
-
-            viewModel.topMovieList.onEach {
-                topFilmsAdapter.submitList(it)
-            }.launchIn(viewLifecycleOwner.lifecycleScope)
-
+            topFilmsSettings(
+                adapter = topFilmsAdapter,
+                itemsViewGroup = binding.topFilms,
+                category = TOP_FILMS
+            )
 
             //Soaps
             val soapsAdapter = FilteredFilmsAdapter(listIds)
-            with(binding.soapOpera) {
-                setTitle(getString(R.string.soaps))
-                setRecyclerView(soapsAdapter)
-                showAllButton.setOnClickListener {
-                    moveToListPage(SOAPS)
-                }
-            }
-            soapsAdapter.onButtonClick = { moveToListPage(SOAPS) }
-            soapsAdapter.onItemClick = { filmId -> moveToFilmPage(filmId) }
-
-            viewModel.soapsFilms.onEach {
-                soapsAdapter.submitList(it)
-            }.launchIn(viewLifecycleOwner.lifecycleScope)
+            filteredFilmsSettings(
+                adapter = soapsAdapter,
+                itemsViewGroup = binding.soapOpera,
+                category = SOAPS
+            )
         }.launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
@@ -211,6 +148,93 @@ class HomepageFragment : Fragment() {
                 firstRandomFilms.visibility = View.VISIBLE
                 secondRandomFilms.visibility = View.VISIBLE
                 soapOpera.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private fun premieresFilmsSettings(adapter: PremieresFilmsAdapter) {
+        with(binding.premieres) {
+            setTitle(getString(R.string.premieres))
+            setRecyclerView(adapter)
+            showAllButton.setOnClickListener {
+                moveToListPage(PREMIERES)
+            }
+        }
+        adapter.onButtonClick = { moveToListPage(PREMIERES) }
+        adapter.onItemClick = { filmId -> moveToFilmPage(filmId) }
+
+        viewModel.premieresMovieList.onEach {
+            adapter.submitList(it)
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
+    }
+
+    private fun topFilmsSettings(
+        adapter: TopFilmsListAdapter,
+        itemsViewGroup: ItemsListViewGroup,
+        category: String
+    ) {
+        with(itemsViewGroup) {
+            setRecyclerView(adapter)
+            showAllButton.setOnClickListener {
+                moveToListPage(category)
+            }
+        }
+        adapter.onButtonClick = { moveToListPage(category) }
+        adapter.onItemClick = { filmId -> moveToFilmPage(filmId) }
+        when (category) {
+            POPULAR -> {
+                viewModel.popularMovieList.onEach {
+                    adapter.submitList(it)
+                }.launchIn(viewLifecycleOwner.lifecycleScope)
+                itemsViewGroup.setTitle(getString(R.string.popular_films))
+            }
+
+            TOP_FILMS -> {
+                viewModel.topMovieList.onEach {
+                    adapter.submitList(it)
+                }.launchIn(viewLifecycleOwner.lifecycleScope)
+                itemsViewGroup.setTitle(getString(R.string.top_films))
+            }
+        }
+    }
+
+    private fun filteredFilmsSettings(
+        adapter: FilteredFilmsAdapter,
+        itemsViewGroup: ItemsListViewGroup,
+        category: String
+    ) {
+        with(itemsViewGroup) {
+            setRecyclerView(adapter)
+            showAllButton.setOnClickListener {
+                moveToListPage(category)
+            }
+        }
+        adapter.onButtonClick = { moveToListPage(category) }
+        adapter.onItemClick = { filmId -> moveToFilmPage(filmId) }
+        when (category) {
+            FIRST_RAND_FILM -> {
+                viewModel.firstRandomFilms.onEach {
+                    adapter.submitList(it)
+                }.launchIn(viewLifecycleOwner.lifecycleScope)
+                viewModel.firstRandomFilmTitle.onEach {
+                    binding.firstRandomFilms.setTitle(it)
+                }.launchIn(viewLifecycleOwner.lifecycleScope)
+            }
+
+            SECOND_RAND_FILM -> {
+                viewModel.secondRandomFilms.onEach {
+                    adapter.submitList(it)
+                }.launchIn(viewLifecycleOwner.lifecycleScope)
+                viewModel.secondRandomFilmTitle.onEach {
+                    itemsViewGroup.setTitle(it)
+                }.launchIn(viewLifecycleOwner.lifecycleScope)
+            }
+
+            SOAPS -> {
+                viewModel.soapsFilms.onEach {
+                    adapter.submitList(it)
+                }.launchIn(viewLifecycleOwner.lifecycleScope)
+                itemsViewGroup.setTitle(getString(R.string.soaps))
             }
         }
     }
