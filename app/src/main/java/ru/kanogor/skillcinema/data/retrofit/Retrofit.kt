@@ -134,7 +134,7 @@ interface SearchApiInfo {
     ): Response<FilteredFilmsDto>
 
     private companion object {
-        private const val api_key = "06258519-3105-4f81-bfe0-422c4ddb4716"
+        private const val api_key = "44b21c34-f124-45de-b23e-b5c3e6f0e62d"
         //api 06258519-3105-4f81-bfe0-422c4ddb4716 / 44b21c34-f124-45de-b23e-b5c3e6f0e62d / ce6f81de-e746-4a8b-8a79-4a7fe451b75d / 1ba8d04f-2102-4a63-b7af-77beedf1d615
     }
 }

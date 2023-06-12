@@ -38,7 +38,7 @@ class HomepageViewModel @Inject constructor(
     private val dataBaseRepository: DataBaseRepository
 ) : ViewModel() {
 
-    val collections = this.dataBaseRepository.getCollection().stateIn(
+    private val collections = this.dataBaseRepository.getCollection().stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5000L),
         initialValue = emptyList()
