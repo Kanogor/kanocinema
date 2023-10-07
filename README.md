@@ -1,3 +1,33 @@
 # Skillcinema
-Cinema app. Search, save and share films in this app.
-Hilt, retrofit, room-database, custom view etc.
+## Приложение для поиска информации о фильмах и сериалах, а также создания и управления коллекциями фильмов и сериалов.
+### Вы можете искать информацию о фильмах и сериалах, выбирать фильмы по категориям, делиться с друзьями, создавать сови собственные подборки с фильмами и просматривать их даже не имея доступа к интернету.
+
+
+<div id="header" align="center">
+<img src="https://ie.wampi.ru/2023/10/07/PREVY--KOPIY.png" width="500"/>
+</div>
+
+
+#### Использованный стек технологий: #
+- Hilt
+- Retrofit
+- Room-database
+- MVVM
+- Custom view
+- Pagination
+- Firebase+Crashlуtics
+- ViewRager
+
+
+#### Приложение состоит из нескольких экранов: #
+###### Превью. Знакомство с приложением: #
+
+
+<img src="https://im.wampi.ru/2023/10/07/PREVY.png" width="400"/> 
+
+***
+
+
+
+
+
